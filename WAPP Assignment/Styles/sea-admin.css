@@ -1,0 +1,670 @@
+/* ============================================================
+   Syntax Error Academy - ADMIN PANEL  (EXTERNAL CSS)
+   Reuses the theme variables + top bar defined in sea-dashboard.css,
+   so dark/light mode and the brand palette stay identical.
+   ============================================================ */
+
+/* -------- Admin top navigation (View User / Manage Question / Report) ------- */
+.adm-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.adm-nlink {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    .adm-nlink:hover,
+    .adm-nlink.active {
+        color: var(--coral);
+        background: var(--coral-bg);
+    }
+
+/* Hover dropdown for "Manage Question" */
+.adm-drop {
+    position: relative;
+}
+
+.adm-drop-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 40;
+    box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+.adm-drop:hover .adm-drop-menu {
+    display: flex;
+}
+
+.adm-drop-menu a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 11px;
+    border-radius: 7px;
+    font-size: 13px;
+    color: var(--text-2);
+}
+
+    .adm-drop-menu a:hover {
+        background: var(--coral-bg);
+        color: var(--coral);
+    }
+
+/* -------- Welcome banner on the admin dashboard -------- */
+.adm-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, var(--coral-bg), transparent);
+    border: 1px solid var(--coral);
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin-bottom: 26px;
+}
+
+.adm-welcome h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+    .adm-welcome h1 span {
+        color: var(--coral);
+    }
+
+.adm-logo {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--coral);
+    white-space: nowrap;
+}
+
+/* -------- Generic page shell -------- */
+.adm-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 26px 70px;
+}
+
+.adm-h {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.adm-sub {
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 0 0 18px;
+}
+
+/* Feature cards on the dashboard landing */
+.adm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.adm-feature {
+    display: block;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color .15s, transform .15s;
+}
+
+    .adm-feature:hover {
+        border-color: var(--coral);
+        transform: translateY(-2px);
+    }
+
+    .adm-feature i {
+        font-size: 26px;
+        color: var(--coral);
+    }
+
+    .adm-feature h3 {
+        margin: 12px 0 6px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .adm-feature p {
+        margin: 0;
+        font-size: 12.5px;
+        color: var(--text-2);
+    }
+
+/* -------- Sub navigation bar above the tables -------- */
+.adm-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: var(--surf-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+}
+
+.adm-toolbar-left,
+.adm-toolbar-mid,
+.adm-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.adm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--coral);
+    color: #212121;
+    border: none;
+    border-radius: 9px;
+    padding: 9px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+    .adm-btn:hover {
+        filter: brightness(1.06);
+    }
+
+.adm-btn.ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+    .adm-btn.ghost:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+        filter: none;
+    }
+
+.adm-btn.danger {
+    background: #e0573f;
+    color: #fff;
+}
+
+.adm-btn.ok {
+    background: var(--olive);
+    color: #fff;
+}
+
+/* Tab-style switches (Student/Instructor, Pending/Approved/Rejected) */
+.adm-tab {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+    .adm-tab:hover {
+        color: var(--text);
+    }
+
+    .adm-tab.active {
+        background: var(--coral-bg);
+        border-color: var(--coral);
+        color: var(--coral);
+    }
+
+/* -------- Data tables -------- */
+.adm-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.adm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 640px;
+}
+
+    .adm-table th {
+        text-align: left;
+        background: var(--surf-2);
+        color: var(--text-2);
+        font-weight: 600;
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--border);
+        white-space: nowrap;
+    }
+
+    .adm-table td {
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        white-space: nowrap;
+    }
+
+    .adm-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .adm-table tbody tr:hover {
+        background: var(--coral-bg);
+    }
+
+    .adm-table tr.selected {
+        background: var(--coral-bg);
+    }
+
+    .adm-table input[type=radio] {
+        accent-color: var(--coral);
+        cursor: pointer;
+    }
+
+.adm-empty {
+    padding: 26px;
+    text-align: center;
+    color: var(--text-2);
+    font-size: 13px;
+}
+
+.adm-muted {
+    color: var(--text-2);
+}
+
+.pwd-cell {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    color: var(--text-2);
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* status chips */
+.chip {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.chip.pending { background: var(--coral-bg); color: var(--coral); }
+.chip.approved { background: rgba(143,174,126,.18); color: var(--olive); }
+.chip.rejected { background: rgba(224,87,63,.15); color: #e0573f; }
+
+/* -------- Overlay + modal dialog -------- */
+.adm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    padding: 20px;
+}
+
+    .adm-overlay.show {
+        display: flex;
+    }
+
+.adm-modal {
+    width: 100%;
+    max-width: 480px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+    .adm-modal.wide {
+        max-width: 640px;
+    }
+
+    .adm-modal h2 {
+        margin: 0 0 4px;
+        font-size: 18px;
+    }
+
+    .adm-modal .modal-sub {
+        margin: 0 0 18px;
+        font-size: 13px;
+        color: var(--text-2);
+    }
+
+.adm-field {
+    margin-bottom: 14px;
+}
+
+    .adm-field label {
+        display: block;
+        font-size: 12px;
+        color: var(--text-2);
+        margin-bottom: 6px;
+    }
+
+    .adm-field input,
+    .adm-field select,
+    .adm-field textarea {
+        width: 100%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        color: var(--text);
+        padding: 10px 12px;
+        font-size: 14px;
+        font-family: inherit;
+        box-sizing: border-box;
+    }
+
+        .adm-field input:focus,
+        .adm-field select:focus,
+        .adm-field textarea:focus {
+            outline: none;
+            border-color: var(--coral);
+        }
+
+    .adm-field input[readonly] {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+    .adm-field textarea {
+        min-height: 96px;
+        resize: vertical;
+    }
+
+.adm-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.adm-vmsg {
+    color: #e0573f;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Small confirm dialog */
+.adm-confirm {
+    max-width: 400px;
+    text-align: center;
+}
+
+    .adm-confirm .cf-ic {
+        font-size: 34px;
+        color: var(--coral);
+        margin-bottom: 6px;
+    }
+
+    .adm-confirm.ok .cf-ic { color: var(--olive); }
+    .adm-confirm.danger .cf-ic { color: #e0573f; }
+
+    .adm-confirm p {
+        font-size: 14.5px;
+        margin: 6px 0 0;
+    }
+
+    .adm-confirm .cf-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+/* Flash message strip */
+.adm-flash {
+    display: none;
+    align-items: center;
+    gap: 9px;
+    background: rgba(143,174,126,.15);
+    border: 1px solid var(--olive);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+    .adm-flash.show { display: flex; }
+    .adm-flash i { color: var(--olive); font-size: 18px; }
+
+/* -------- Read-only question view (admin) -------- */
+.adm-answer-opt {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14px;
+    line-height: 2.1;
+}
+
+    .adm-answer-opt.correct {
+        color: var(--olive);
+        font-weight: 600;
+    }
+
+    .adm-answer-opt i {
+        font-size: 16px;
+    }
+
+/* Back link used on the admin read-only question view (in case sea-quiz.css
+   in this project version doesn't define one). */
+.quiz-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+.quiz-back:hover { color: var(--coral); }
+
+/* ================= Quiz Report ================= */
+.rep-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 4px 0 22px;
+}
+.rep-card {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+}
+.rep-val { font-size: 26px; font-weight: 700; line-height: 1.1; }
+.rep-val.ok { color: var(--olive); }
+.rep-val.bad { color: #e0573f; }
+.rep-val.coral { color: var(--coral); }
+.rep-label { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+
+/* correct / wrong split bar */
+.rep-split { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--surf-2); margin: 10px 0 4px; }
+.rep-split .seg-ok  { background: var(--olive); }
+.rep-split .seg-bad { background: #e0573f; }
+.rep-split-legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-2); }
+.rep-split-legend b { color: var(--text); }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.dot.ok { background: var(--olive); } .dot.bad { background: #e0573f; }
+
+/* day selector */
+.rep-days { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.rep-day {
+    border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px;
+    font-size: 12.5px; color: var(--text-2); cursor: pointer; text-align: center; min-width: 74px;
+}
+.rep-day small { display: block; font-size: 10.5px; opacity: .7; }
+.rep-day:hover { color: var(--text); }
+.rep-day.active { background: var(--coral-bg); border-color: var(--coral); color: var(--coral); }
+
+/* 7-day bar chart */
+.rep-chart { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 14px 6px 0; border: 1px solid var(--border); border-radius: 12px; background: var(--surf); }
+.rep-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.rep-bar-fill { width: 60%; max-width: 42px; background: var(--coral); border-radius: 6px 6px 0 0; min-height: 3px; transition: height .2s; }
+.rep-col.today .rep-bar-fill { background: var(--olive); }
+.rep-bar-num { font-size: 12px; font-weight: 600; }
+.rep-bar-day { font-size: 11px; color: var(--text-2); }
+.rep-section-h { font-size: 14px; font-weight: 600; margin: 26px 0 10px; }
+
+/* ================= Summary Report selectors ================= */
+.sum-bar { align-items: flex-end; }
+.sum-field { display: none; flex-direction: column; gap: 5px; }
+.sum-field.show { display: flex; }
+.sum-field label { font-size: 11px; color: var(--text-2); }
+.sum-field select {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 9px;
+    color: var(--text); padding: 9px 12px; font-size: 13px; font-family: inherit; min-width: 150px;
+}
+.sum-field select:focus { outline: none; border-color: var(--coral); }
+#wrapGen { display: none; }
+#wrapGen.show { display: block; }
+
+/* ============================================================
+   MOBILE LAYOUT
+   Applies only under 720px / 480px, so the desktop admin
+   layout is unchanged.
+
+   Two problems are fixed here. First, .adm-nav was a single
+   non-wrapping row, so its links ran off the edge of a narrow
+   screen. Second, the "Quiz Management" and "Generate Report"
+   menus open on :hover, and a touch screen has no hover, so
+   those items could not be reached at all on a phone. On
+   mobile the menus are therefore shown inline as part of the
+   wrapped navigation instead of as floating dropdowns.
+   ============================================================ */
+@media (max-width: 720px) {
+    .adm-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    /* show the dropdown contents inline - no hover needed */
+    .adm-drop {
+        position: static;
+        display: contents;
+    }
+
+    .adm-drop-menu {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        min-width: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+
+    /* the parent label is redundant once its items are shown inline */
+    .adm-drop > .adm-nlink {
+        display: none;
+    }
+
+    .adm-nlink,
+    .adm-drop-menu a {
+        padding: 7px 10px;
+        font-size: 12.5px;
+        background: var(--surf);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+    .adm-wrap {
+        padding: 16px 12px 60px;
+    }
+
+    .adm-logo {
+        font-size: 24px;
+    }
+
+    /* the welcome banner stacks instead of sitting side by side */
+    .adm-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .adm-h {
+        font-size: 21px;
+    }
+
+    .adm-toolbar {
+        padding: 10px;
+    }
+
+    .adm-toolbar-right {
+        width: 100%;
+    }
+
+    .adm-modal {
+        padding: 18px;
+        max-height: 84vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .adm-nlink {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
+
+    .adm-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .adm-btn {
+        font-size: 12.5px;
+    }
+
+    .adm-wrap {
+        padding: 12px 10px 56px;
+    }
+}

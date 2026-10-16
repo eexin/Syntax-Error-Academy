@@ -1,0 +1,853 @@
+﻿/* ============================================================
+   Syntax Error Academy - Student dashboard  (EXTERNAL CSS)
+   Brand palette:
+     #212121  dark background      #FF9485  coral accent
+     #40603C  olive (success)      white / light surfaces
+   Dark mode is the default. Adding class "light" to <html>
+   switches every colour via the CSS variables below.
+   ============================================================ */
+
+/* ---- DARK theme (default) ---- */
+html {
+    --bg: #212121;
+    --surf: #2b2b2b;
+    --surf-2: #1d1d1d;
+    --border: #3a3a3a;
+    --text: #f2f2f0;
+    --text-2: #9a9a96;
+    --coral: #ff9485;
+    --coral-bg: rgba(255, 148, 133, 0.15);
+    --olive: #8fae7e;
+    --glass: rgba(28, 28, 30, 0.62);
+}
+
+    /* ---- LIGHT theme (html.light) ---- */
+    html.light {
+        --bg: #f5f4f1;
+        --surf: #ffffff;
+        --surf-2: #faf9f6;
+        --border: #e6e3dd;
+        --text: #212121;
+        --text-2: #6c6a64;
+        --coral: #d8543c;
+        --coral-bg: rgba(216, 84, 60, 0.10);
+        --olive: #40603c;
+        --glass: rgba(255, 255, 255, 0.72);
+    }
+
+* {
+    box-sizing: border-box;
+}
+
+/* Wallpaper lives on <body> so it sits behind the header AND the panel.
+   To use your own image, replace the gradient with:
+       background: url('Styles/your-wallpaper.jpg') center / cover fixed; */
+body {
+    margin: 0;
+    background: radial-gradient(120% 120% at 18% 0%, #2b2350 0%, #1d1b2e 45%, #161616 100%) fixed;
+    color: var(--text);
+    font-family: Segoe UI, system-ui, -apple-system, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+html.light body {
+    background: radial-gradient(120% 120% at 18% 0%, #e7e3ff 0%, #f1eef7 45%, #f5f4f1 100%) fixed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------------------- Top bar / header ---------------------- */
+.sea-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 11px 20px;
+    background: var(--surf-2);
+    border-bottom: 1px solid var(--border);
+}
+
+.sea-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sea-brand {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 26px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .sea-brand .bracket {
+        color: var(--coral);
+    }
+
+.sea-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sea-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+    .sea-pill.streak {
+        background: var(--coral-bg);
+        color: var(--coral);
+    }
+
+    .sea-pill.coin {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-family: Consolas, "Courier New", monospace;
+    }
+
+.sea-nlink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-2);
+    font-size: 13px;
+    padding: 6px 8px;
+}
+
+    .sea-nlink:hover {
+        color: var(--coral);
+    }
+
+.sea-sep {
+    width: 1px;
+    height: 22px;
+    background: var(--border);
+    margin: 0 4px;
+}
+
+.sea-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+    /* the avatar SVG fills the circle (replaces the old initials) */
+    .sea-avatar svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ----------------------- Layout body -------------------------- */
+/* One isolated glass panel (level rail + quizzes) floating in the middle
+   of the page, detached from the top navigation - Steam-profile style. */
+.sea-body {
+    display: flex;
+    width: calc(100% - 48px);
+    max-width: 1060px;
+    margin: 32px auto 48px;
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden; /* clips the rail to the rounded corners */
+}
+
+/* Left rail: the level navigation */
+.sea-side {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--surf-2);
+    border-right: 1px solid var(--border);
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sea-side-label {
+    font-size: 11px;
+    color: var(--text-2);
+    letter-spacing: .06em;
+    padding: 0 10px 8px;
+}
+
+.lvl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-2);
+}
+
+    .lvl i {
+        font-size: 17px;
+    }
+
+    .lvl:hover {
+        background: var(--surf);
+        color: var(--text);
+    }
+
+    .lvl.done {
+        color: var(--text);
+    }
+
+        .lvl.done i {
+            color: var(--olive);
+        }
+
+    .lvl.active {
+        background: var(--coral-bg);
+        color: var(--coral);
+        font-weight: 600;
+    }
+
+        .lvl.active i {
+            color: var(--coral);
+        }
+
+    .lvl.locked {
+        color: var(--text-2);
+        opacity: .6;
+        pointer-events: none;
+    }
+
+/* Main content area: the panel itself is the card now, so this is just padding */
+.sea-main {
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+}
+
+.sea-h {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sea-sub {
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 4px 0 0;
+}
+
+.sea-bar {
+    height: 7px;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 16px 0 20px;
+}
+
+.sea-bar-fill {
+    height: 100%;
+    background: var(--olive);
+}
+
+/* Quiz card grid */
+.sea-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+}
+
+.sea-card {
+    display: block;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 15px;
+    transition: border-color .15s, transform .15s;
+}
+
+    .sea-card:hover {
+        border-color: var(--coral);
+        transform: translateY(-2px);
+    }
+
+.sea-card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.sea-code {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    color: var(--text-2);
+}
+
+.sea-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.sea-meta {
+    font-size: 12px;
+    color: var(--text-2);
+    font-family: Consolas, "Courier New", monospace;
+}
+
+    .sea-meta b {
+        color: var(--coral);
+        font-weight: 600;
+    }
+
+.sea-cat {
+    letter-spacing: .04em;
+}
+
+.icon-ok {
+    color: var(--olive);
+    font-size: 19px;
+}
+
+/* attempted but not all correct yet - invites a retry */
+.icon-retry {
+    color: #f7c948;
+    font-size: 19px;
+}
+
+.icon-go {
+    color: var(--coral);
+    font-size: 19px;
+}
+
+/* "Back to dashboard" link - shared by every page (same style as the quiz pages) */
+.quiz-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+    .quiz-back:hover {
+        color: var(--coral);
+        border-color: var(--coral);
+        transform: translateX(-2px);
+    }
+
+/* Floating dark / light toggle */
+.sea-toggle {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+    .sea-toggle:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+    }
+
+/* Responsive: collapse the rail on narrow screens */
+@media (max-width: 640px) {
+    .sea-body {
+        flex-direction: column;
+        width: calc(100% - 24px);
+        margin: 16px auto 32px;
+    }
+
+    .sea-side {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .sea-side-label {
+        width: 100%;
+    }
+}
+
+/* Daily Challenge card on the dashboard */
+.sea-daily {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--coral-bg), transparent);
+    border: 1px solid var(--coral);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+    .sea-daily:hover {
+        filter: brightness(1.06);
+    }
+
+.sea-daily-ic {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--coral);
+    color: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.sea-daily-tx {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+    .sea-daily-tx strong {
+        font-size: 14px;
+    }
+
+    .sea-daily-tx span {
+        font-size: 12px;
+        color: var(--text-2);
+    }
+
+.sea-daily-go {
+    color: var(--coral);
+    font-size: 18px;
+}
+
+/* ================= Level progression track ================= */
+/* Horizontal road above the quizzes; the avatar pin marks the current level. */
+.sea-track {
+    position: relative;
+    margin: 26px 0 30px;
+    padding-top: 88px; /* room for the floating pin */
+}
+
+.sea-road {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    top: 105px; /* aligned to the middle of the dots */
+    height: 6px;
+    border-radius: 3px;
+    background: var(--surf-2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.sea-road-fill {
+    height: 100%;
+    width: 0;
+    background: var(--coral);
+    border-radius: 3px;
+    transition: width 1.4s cubic-bezier(.22, .61, .36, 1);
+}
+
+.sea-stops {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sea-stop {
+    width: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    color: var(--text-2);
+    font-size: 12px;
+}
+
+.sea-stop-dot {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surf);
+    border: 2px solid var(--border);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-2);
+    transition: transform .15s ease, border-color .15s ease;
+}
+
+.sea-track-label {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--text-2);
+}
+
+    .sea-track-label b {
+        color: var(--coral);
+        font-size: 13px;
+        margin-left: 4px;
+    }
+
+a.sea-stop:hover .sea-stop-dot {
+    transform: scale(1.12);
+    border-color: var(--coral);
+}
+
+.sea-stop.done .sea-stop-dot,
+.sea-stop.current .sea-stop-dot {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #212121;
+}
+
+.sea-stop.current {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.sea-stop.locked {
+    opacity: .55;
+    cursor: default;
+}
+
+/* ---- the avatar map pin ---- */
+.sea-pin {
+    position: absolute;
+    top: 6px;
+    left: 32px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: left 1.4s cubic-bezier(.22, .61, .36, 1), opacity .25s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+    .sea-pin.no-anim {
+        transition: none !important;
+    }
+
+.sea-pin-float {
+    display: block;
+    width: 80px;
+    height: 80px;
+    animation: seaPinBob 2s ease-in-out infinite;
+    position: relative;
+}
+
+.sea-pin-body {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    background: var(--coral);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .35));
+}
+
+.sea-pin.pulse .sea-pin-body {
+    animation: seaPinPulse .5s ease;
+}
+
+.sea-pin-avatar {
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: var(--surf);
+    overflow: hidden;
+    transform: rotate(45deg); /* counter-rotate the teardrop */
+}
+
+    .sea-pin-avatar svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.sea-pin-caption {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: var(--coral);
+    color: #212121;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+    .sea-pin-caption.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+@keyframes seaPinBob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes seaPinPulse {
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .sea-track {
+        padding-top: 70px;
+    }
+
+    .sea-road {
+        left: 22px;
+        right: 22px;
+        top: 84px;
+    }
+
+    .sea-stop {
+        width: 44px;
+        font-size: 10px;
+    }
+
+    .sea-stop-dot {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+
+    .sea-pin-float {
+        width: 62px;
+        height: 62px;
+    }
+
+    .sea-pin-body {
+        width: 44px;
+        height: 44px;
+        margin: -22px 0 0 -22px;
+    }
+}
+
+/* ---- item-point reward animation ---- */
+.sea-reward-float {
+    position: absolute;
+    left: 50%;
+    top: -46px;
+    transform: translateX(-50%);
+    background: #f7c948;
+    color: #212121;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: seaRewardRise 1.9s ease forwards;
+}
+
+@keyframes seaRewardRise {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-18px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-32px);
+    }
+}
+
+.sea-coin.bump {
+    animation: seaCoinBump .45s ease;
+}
+
+@keyframes seaCoinBump {
+    0% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ============================================================
+   MOBILE LAYOUT
+   Everything below applies only under 720px / 480px wide, so
+   the desktop layout is completely unchanged. The top bar is
+   the main fix: .sea-nav was a single non-wrapping row, so on a
+   narrow screen the links ran off the edge of the screen and
+   could not be reached. It now wraps onto as many rows as it
+   needs, keeping every button visible and tappable.
+   ============================================================ */
+@media (max-width: 720px) {
+    /* stack the brand above the links instead of side by side */
+    .sea-top {
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .sea-left {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .sea-brand {
+        font-size: 21px;
+    }
+
+        /* the octopus is sized by an inline style in the markup,
+           so it needs !important to be overridden here */
+        .sea-brand img {
+            height: 1.7em !important;
+            margin-left: 4px !important;
+        }
+
+    /* the fix: allow the nav to wrap so no button is pushed off-screen */
+    .sea-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    /* a vertical divider makes no sense once the row wraps */
+    .sea-sep {
+        display: none;
+    }
+
+    /* give each wrapped link a clear tappable outline */
+    .sea-nlink {
+        padding: 7px 10px;
+        font-size: 12.5px;
+        background: var(--surf);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+    .sea-main {
+        padding: 16px;
+    }
+
+    .sea-h {
+        font-size: 20px;
+    }
+
+    /* keep the floating theme button clear of page content */
+    .sea-toggle {
+        right: 12px;
+        bottom: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sea-brand {
+        font-size: 18px;
+    }
+
+    .sea-nlink {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
+
+    .sea-pill {
+        padding: 5px 9px;
+        font-size: 12px;
+    }
+
+    .sea-main {
+        padding: 13px;
+    }
+
+    /* the daily-challenge banner stacks so its text is not squeezed */
+    .sea-daily {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .sea-grid {
+        grid-template-columns: 1fr;
+    }
+}

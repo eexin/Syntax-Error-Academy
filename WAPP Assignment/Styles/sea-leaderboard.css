@@ -1,0 +1,421 @@
+﻿/* ============================================================
+   Syntax Error Academy - Leaderboard (EXTERNAL CSS)
+   Reuses the theme variables from sea-dashboard.css.
+   ============================================================ */
+
+.lb-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+.lb-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.lb-sub {
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 4px 0 18px;
+}
+
+.lb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lb-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+    .lb-row.me {
+        border-color: var(--coral);
+        background: var(--coral-bg);
+    }
+
+.lb-rank {
+    width: 30px;
+    text-align: center;
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text-2);
+}
+
+.lb-row.top1 .lb-rank {
+    color: #e3b341;
+}
+/* gold   */
+.lb-row.top2 .lb-rank {
+    color: #b8b8b8;
+}
+/* silver */
+.lb-row.top3 .lb-rank {
+    color: #cd7f32;
+}
+/* bronze */
+
+.lb-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--surf-2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+    .lb-avatar svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.lb-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lb-you {
+    font-size: 11px;
+    color: var(--coral);
+    background: var(--coral-bg);
+    padding: 2px 7px;
+    border-radius: 6px;
+    margin-left: 8px;
+}
+
+.lb-streak {
+    font-size: 12px;
+    color: var(--text-2);
+    font-family: Consolas, "Courier New", monospace;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lb-score {
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+    min-width: 64px;
+    text-align: right;
+}
+
+/* ============================================================
+   Winner's podium (top 3)
+   ============================================================ */
+.pd-stage {
+    position: relative;
+    overflow: hidden;
+    margin: 6px 0 26px;
+    padding: 30px 10px 16px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    backdrop-filter: blur(8px);
+}
+
+/* golden spotlight + pulsing halo behind the champion */
+.pd-spot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 62%;
+    background: linear-gradient(rgba(255, 224, 150, .14), rgba(255, 224, 150, 0));
+    clip-path: polygon(32% 0, 68% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.pd-halo {
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 209, 102, .4), rgba(255, 209, 102, 0) 70%);
+    animation: pdPulse 2.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+html.light .pd-spot { background: linear-gradient(rgba(227, 169, 61, .12), rgba(227, 169, 61, 0)); }
+html.light .pd-halo { background: radial-gradient(circle, rgba(227, 169, 61, .25), rgba(227, 169, 61, 0) 70%); }
+
+/* looping confetti */
+.pd-cf {
+    position: absolute;
+    top: -20px;
+    width: 5px;
+    height: 10px;
+    border-radius: 2px;
+    opacity: .85;
+    animation: pdFall linear infinite;
+    pointer-events: none;
+}
+
+    .pd-cf.dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+    }
+
+/* the three columns: 2nd | 1st | 3rd */
+.pd-row {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 22px);
+}
+
+.pd-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(92px, 27vw, 158px);
+    animation: pdRise .8s cubic-bezier(.2, .9, .3, 1.15) both;
+}
+
+.pd-c1 { --pd-metal: #ffd166; animation-delay: .4s; z-index: 2; }
+.pd-c2 { --pd-metal: #d7d7d7; animation-delay: .2s; }
+.pd-c3 { --pd-metal: #d08b4e; animation-delay: .06s; }
+html.light .pd-c1 { --pd-metal: #e3a93d; }
+html.light .pd-c2 { --pd-metal: #9e9e9e; }
+
+/* avatar standing on the block */
+.pd-avatar {
+    position: relative;
+    height: clamp(76px, 22vw, 126px);
+    aspect-ratio: 200 / 240;
+    margin-bottom: -3px;
+    z-index: 1;
+}
+
+.pd-c1 .pd-avatar { height: clamp(98px, 27vw, 152px); }
+
+.pd-avbox,
+.pd-avbox svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.pd-avbox svg { filter: drop-shadow(0 6px 4px rgba(0, 0, 0, .28)); }
+
+/* decorations layered over the avatar */
+.pd-trophy {
+    position: absolute;
+    left: 50%;
+    bottom: 4%;
+    transform: translateX(-50%);
+    width: 40%;
+}
+
+.pd-crown {
+    position: absolute;
+    left: 50%;
+    top: 1%;
+    transform: translateX(-50%);
+    width: 34%;
+}
+
+.pd-medal {
+    position: absolute;
+    left: 50%;
+    top: 59%;
+    transform: translateX(-50%);
+    width: 17%;
+}
+
+.pd-spark {
+    position: absolute;
+    width: 16%;
+    animation: pdTw 1.9s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.pd-s1 { left: -8%; top: 26%; }
+.pd-s2 { right: -10%; top: 40%; width: 13%; animation-delay: .7s; }
+.pd-s3 { left: 66%; top: -4%; width: 11%; animation-delay: 1.2s; }
+
+/* the block itself */
+.pd-block {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px 14px 0 0;
+    background: linear-gradient(180deg, #ffa898, #ee7663);
+    box-shadow: inset 6px 0 10px -6px rgba(255, 255, 255, .35), inset -8px 0 12px -8px rgba(0, 0, 0, .25);
+}
+
+    /* metal inlay strip along the top edge */
+    .pd-block::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 12%;
+        right: 12%;
+        height: 3.5px;
+        border-radius: 2px;
+        background: var(--pd-metal);
+        opacity: .95;
+    }
+
+.pd-b1 { height: clamp(120px, 32vw, 178px); }
+.pd-b2 { height: clamp(84px, 23vw, 120px); }
+.pd-b3 { height: clamp(64px, 18vw, 94px); }
+
+.pd-num {
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    font-size: clamp(30px, 8vw, 54px);
+    color: var(--pd-metal);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+}
+
+/* glass nameplate */
+.pd-plate {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 6px;
+    text-align: center;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .12);
+}
+
+html.light .pd-plate {
+    background: rgba(0, 0, 0, .04);
+    border-color: rgba(0, 0, 0, .12);
+}
+
+.pd-c1 .pd-plate {
+    background: rgba(255, 209, 102, .08);
+    border-color: rgba(255, 209, 102, .45);
+}
+
+html.light .pd-c1 .pd-plate {
+    background: rgba(227, 169, 61, .1);
+    border-color: rgba(227, 169, 61, .5);
+}
+
+.pd-plate.pd-me {
+    border-color: var(--coral);
+    background: var(--coral-bg);
+}
+
+.pd-you {
+    position: absolute;
+    top: -9px;
+    right: -6px;
+    font-size: 10.5px;
+    color: var(--coral);
+    background: var(--coral-bg);
+    border: 1px solid var(--coral);
+    padding: 1px 8px;
+    border-radius: 8px;
+}
+
+.pd-name {
+    display: block;
+    font-size: 13px;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pd-score {
+    display: block;
+    margin-top: 2px;
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--pd-metal);
+}
+
+/* animations */
+@keyframes pdRise {
+    from { transform: translateY(48px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes pdPulse {
+    0%, 100% { opacity: .45; }
+    50%      { opacity: 1; }
+}
+
+@keyframes pdTw {
+    0%, 100% { opacity: .1; }
+    50%      { opacity: 1; }
+}
+
+@keyframes pdFall {
+    from { transform: translateY(-40px) rotate(0deg); }
+    to   { transform: translateY(560px) rotate(330deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pd-col, .pd-halo, .pd-spark, .pd-cf { animation: none; }
+}
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px / 380px only.
+   The podium already scales with clamp(), so these rules just
+   tighten the surrounding padding and stop a long student name
+   pushing the score off the row.
+   ============================================================ */
+@media (max-width: 560px) {
+    .lb-wrap { padding: 16px 12px 50px; }
+
+    .lb-title { font-size: 21px; }
+
+    .lb-row {
+        gap: 10px;
+        padding: 10px 12px;
+    }
+
+    .lb-name { font-size: 13px; }
+
+    .lb-score { font-size: 13px; }
+
+    .pd-stage { padding: 22px 6px 12px; }
+
+    .pd-plate { padding: 7px 4px; }
+
+    .pd-name { font-size: 12px; }
+
+    .pd-score { font-size: 13px; }
+}
+
+@media (max-width: 380px) {
+    /* the streak column is the least important, so it goes first */
+    .lb-streak { display: none; }
+
+    .lb-row { gap: 8px; }
+}

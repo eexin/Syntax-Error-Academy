@@ -1,0 +1,3 @@
+*.mdf binary
+*.ldf binary
+*.svg text

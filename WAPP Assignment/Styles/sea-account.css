@@ -1,0 +1,383 @@
+﻿/* ============================================================
+   Syntax Error Academy - Item Shop & Profile (EXTERNAL CSS)
+   Reuses the theme variables from sea-dashboard.css.
+   ============================================================ */
+
+.acc-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+.acc-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.acc-sub {
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 4px 0 18px;
+}
+
+.acc-msg {
+    background: var(--coral-bg);
+    color: var(--coral);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.acc-ok {
+    background: rgba(143,174,126,.16);
+    color: var(--olive);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* ---- Shop grid ---- */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+.shop-card {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-thumb {
+    height: 88px;
+    border-radius: 10px;
+    background: var(--coral-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--coral);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+    /* Wallpaper preview: the item's real CSS background fills the thumb; hide the icon */
+    .shop-thumb.preview {
+        border: 1px solid var(--border);
+    }
+
+        .shop-thumb.preview i {
+            display: none;
+        }
+
+.shop-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 2px;
+}
+
+.shop-type {
+    font-size: 11px;
+    color: var(--text-2);
+    letter-spacing: .04em;
+    margin-bottom: 6px;
+}
+
+.shop-desc {
+    font-size: 12px;
+    color: var(--text-2);
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+.shop-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.shop-price {
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+    color: var(--coral);
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.shop-btn {
+    background: var(--coral);
+    color: #212121;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .shop-btn:hover {
+        filter: brightness(1.05);
+    }
+
+    .shop-btn:disabled {
+        background: var(--border);
+        color: var(--text-2);
+        cursor: not-allowed;
+    }
+
+    .shop-btn.ghost {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+    }
+
+        .shop-btn.ghost:hover {
+            border-color: var(--coral);
+            color: var(--coral);
+            filter: none;
+        }
+
+.shop-owned {
+    font-size: 12px;
+    color: var(--olive);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ---- Profile form ---- */
+.acc-card {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    max-width: 440px;
+}
+
+.acc-field {
+    margin-bottom: 16px;
+}
+
+    .acc-field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--text);
+    }
+
+    .acc-field input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        padding: 11px 12px;
+        font-size: 14px;
+        background: var(--bg);
+        color: var(--text);
+    }
+
+        .acc-field input:focus {
+            outline: none;
+            border-color: var(--coral);
+        }
+
+.acc-hint {
+    font-size: 12px;
+    color: var(--text-2);
+    margin-top: 4px;
+}
+
+.acc-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.acc-save {
+    background: var(--coral);
+    color: #212121;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .acc-save:hover {
+        filter: brightness(1.05);
+    }
+
+.acc-logout {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 11px 18px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .acc-logout:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+    }
+
+.vmsg {
+    color: #d8543c;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* ---- Profile: avatar standing beside the account card ---- */
+.acc-layout {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+    .acc-layout .acc-card {
+        flex: 1;
+        min-width: 0;
+    }
+
+.acc-avatar-box {
+    width: 250px;
+    flex-shrink: 0;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+    .acc-avatar-box svg {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
+
+.acc-avatar-caption {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.acc-avatar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--coral);
+}
+
+@media (max-width: 720px) {
+    .acc-layout {
+        flex-direction: column;
+    }
+
+    .acc-avatar-box {
+        width: 100%;
+    }
+}
+
+/* ---- Shop: avatar item previews ---- */
+.shop-thumb.avatar {
+    background: var(--surf-2);
+}
+
+    .shop-thumb.avatar svg {
+        height: 100%;
+        width: auto;
+        padding: 6px 0;
+    }
+
+/* ---- Danger zone: delete account ---- */
+.acc-danger {
+    margin-top: 26px;
+    padding: 18px;
+    border: 1px solid rgba(229, 83, 75, .45);
+    border-radius: 14px;
+    background: rgba(229, 83, 75, .07);
+}
+
+.acc-danger-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: #e5534b;
+}
+
+.acc-danger-text {
+    margin: 0 0 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-2);
+}
+
+.acc-delete {
+    margin-top: 4px;
+    padding: 10px 18px;
+    border: 1px solid #e5534b;
+    border-radius: 10px;
+    background: transparent;
+    color: #e5534b;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+}
+
+    .acc-delete:hover {
+        background: #e5534b;
+        color: #fff;
+    }
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px only.
+   Buttons stack to full width so they are easy to tap and are
+   never pushed outside the card.
+   ============================================================ */
+@media (max-width: 560px) {
+    .acc-wrap { padding-left: 12px; padding-right: 12px; }
+    .acc-card { padding: 16px; }
+
+    /* Save / Log out sit one above the other instead of side by side */
+    .acc-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .acc-save,
+    .acc-logout,
+    .acc-delete {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .shop-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 380px) {
+    .shop-grid { grid-template-columns: 1fr; }
+}

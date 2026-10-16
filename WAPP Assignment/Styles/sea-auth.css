@@ -1,0 +1,199 @@
+﻿/* ============================================================
+   Syntax Error Academy - Login & Sign-up (EXTERNAL CSS)
+   Self-contained brand palette (these pages run before login,
+   so they don't use the dashboard theme variables):
+     #212121 background   #FF9485 coral accent   #40603C olive hover
+   ============================================================ */
+
+.auth-page {
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    background: #212121;
+    color: #f2f2f0;
+    font-family: Segoe UI, system-ui, -apple-system, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.lamp {
+    margin-bottom: 8px;
+}
+
+.auth-brand {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 34px;
+    font-weight: 700;
+    color: #ff9485;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .auth-brand .b {
+        color: #ff9485;
+    }
+
+.auth-tag {
+    color: #9a9a96;
+    font-size: 13px;
+    margin: 4px 0 22px;
+}
+
+.auth-card {
+    background: #ffffff;
+    color: #212121;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 16px;
+    padding: 26px 26px 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.45);
+}
+
+    .auth-card h1 {
+        font-size: 20px;
+        margin: 0 0 18px;
+        text-align: center;
+    }
+
+.field {
+    margin-bottom: 14px;
+}
+
+    .field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #3a3a3a;
+    }
+
+    .field input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #d9d9d9;
+        border-radius: 9px;
+        padding: 11px 12px;
+        font-size: 14px;
+        color: #212121;
+        background: #fff;
+    }
+
+        .field input:focus {
+            outline: none;
+            border-color: #ff9485;
+            box-shadow: 0 0 0 3px rgba(255,148,133,.25);
+        }
+
+.btn-primary {
+    width: 100%;
+    background: #ff9485;
+    color: #212121;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+    .btn-primary:hover {
+        filter: brightness(1.05);
+    }
+
+.btn-grey {
+    width: 100%;
+    background: #e3e3e0;
+    color: #212121;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .btn-grey:hover {
+        background: #40603c;
+        color: #fff;
+    }
+
+.auth-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+    .auth-row .btn-primary, .auth-row .btn-grey {
+        margin-top: 0;
+    }
+
+.auth-alt {
+    text-align: center;
+    font-size: 13px;
+    color: #6b6b6b;
+    margin-top: 16px;
+}
+
+    .auth-alt a {
+        color: #d8543c;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+        .auth-alt a:hover {
+            text-decoration: underline;
+        }
+
+.vmsg {
+    color: #d8543c;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+.auth-error {
+    background: #fbeae7;
+    color: #b23b22;
+    border: 1px solid #f3c9c0;
+    border-radius: 9px;
+    padding: 10px 12px;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px / 380px only.
+   Keeps the login and sign-up card inside the screen on a
+   phone and stops the wordmark overflowing.
+   ============================================================ */
+@media (max-width: 560px) {
+    .auth-card {
+        max-width: 100%;
+        padding: 22px 18px 24px;
+    }
+
+    .auth-brand {
+        font-size: 27px;
+    }
+
+        /* the octopus is sized by an inline style in the markup */
+        .auth-brand img {
+            height: 1.7em !important;
+        }
+}
+
+@media (max-width: 380px) {
+    .auth-card {
+        padding: 18px 14px 20px;
+        border-radius: 13px;
+    }
+
+    .auth-brand {
+        font-size: 23px;
+    }
+}

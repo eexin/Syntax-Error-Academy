@@ -1,0 +1,199 @@
+/* ============================================================
+   Syntax Error Academy - INSTRUCTOR PANEL styles
+   Reuses the theme variables + top bar/side rail from sea-dashboard.css.
+   ============================================================ */
+
+.ins-badge-pill { background: var(--coral-bg); color: var(--coral); }
+
+/* ---------- dashboard quiz cards ---------- */
+.ins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+.ins-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 150px;
+}
+.ins-card-title { margin: 0 0 6px; font-size: 16px; font-weight: 600; color: var(--text); }
+.ins-card-desc { margin: 0; font-size: 13px; color: var(--text-2); flex: 1; line-height: 1.5; }
+.ins-card-foot {
+    display: flex; align-items: center; justify-content: space-between; margin-top: 14px;
+}
+.ins-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+}
+.ins-badge.green  { background: rgba(143,174,126,.18); color: var(--olive); }
+.ins-badge.yellow { background: rgba(240,190,90,.16); color: #e0a83a; }
+.ins-badge.red    { background: rgba(224,87,63,.15); color: #e0573f; }
+.ins-badge.view {
+    background: var(--coral); color: #212121; text-decoration: none; cursor: pointer;
+}
+.ins-badge.view:hover { filter: brightness(1.07); }
+
+/* ---------- generic buttons / rows ---------- */
+.ins-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--coral); color: #212121; border: none; border-radius: 10px;
+    padding: 11px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.ins-btn:hover { filter: brightness(1.06); }
+.ins-btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.ins-btn.ghost:hover { border-color: var(--coral); color: var(--coral); filter: none; }
+.ins-btn.danger { background: #e0573f; color: #fff; }
+.ins-btnrow { display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+
+/* ---------- create quiz: step 1 (name + description) ---------- */
+.ins-panel {
+    max-width: 620px; margin: 0 auto;
+    background: var(--surf); border: 1px solid var(--border); border-radius: 16px; padding: 26px;
+}
+.ins-field { margin-bottom: 16px; }
+.ins-field label { display: block; font-size: 12px; color: var(--text-2); margin-bottom: 6px; }
+.ins-field input, .ins-field textarea, .ins-field select {
+    width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    color: var(--text); padding: 11px 13px; font-size: 14px; font-family: inherit; box-sizing: border-box;
+}
+.ins-field input:focus, .ins-field textarea:focus, .ins-field select:focus { outline: none; border-color: var(--coral); }
+.ins-field textarea { min-height: 90px; resize: vertical; }
+
+/* ---------- create quiz: step 2 (builder) ---------- */
+.ins-build { display: grid; grid-template-columns: 210px 1fr; gap: 18px; align-items: start; }
+.ins-palette { display: flex; flex-direction: column; gap: 12px; position: sticky; top: 16px; }
+.ins-pal-label { font-size: 11px; letter-spacing: .06em; color: var(--text-2); text-transform: uppercase; }
+.ins-pal-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surf); border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px 15px; cursor: grab; font-size: 14px; font-weight: 600; color: var(--text);
+    user-select: none;
+}
+.ins-pal-item:hover { border-color: var(--coral); }
+.ins-pal-item i { font-size: 20px; color: var(--coral); }
+.ins-pal-item.dragging { opacity: .5; }
+
+.ins-canvas { min-height: 200px; }
+.ins-quizhead {
+    background: var(--surf); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px;
+}
+.ins-dropzone {
+    border: 2px dashed var(--border); border-radius: 14px; padding: 34px 18px;
+    text-align: center; color: var(--text-2); font-size: 14px; transition: all .15s;
+}
+.ins-dropzone.over { border-color: var(--coral); background: var(--coral-bg); color: var(--coral); }
+.ins-adder { margin-top: 14px; }
+.ins-adder .ins-dropzone { padding: 20px; }
+
+/* a built question block */
+.ins-qblock {
+    background: var(--surf); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-bottom: 14px;
+}
+.ins-qblock-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.ins-qtag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: .05em; }
+.ins-qremove { background: none; border: none; color: var(--text-2); cursor: pointer; font-size: 18px; }
+.ins-qremove:hover { color: #e0573f; }
+.ins-opt-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.ins-opt-row input[type=text] { flex: 1; }
+.ins-opt-row input[type=radio] { accent-color: var(--coral); }
+.ins-opt-row .lbl { font-size: 11px; color: var(--text-2); min-width: 54px; }
+.ins-mini { font-size: 11px; color: var(--text-2); margin: 2px 0 8px; }
+
+/* ---------- shop ---------- */
+.ins-shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.ins-shop-card {
+    background: var(--surf); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-align: center;
+}
+.ins-shop-card.equipped { border-color: var(--olive); }
+.ins-shop-ic { font-size: 30px; color: var(--coral); }
+.ins-shop-name { font-size: 14px; font-weight: 600; margin: 8px 0 2px; }
+.ins-shop-type { font-size: 11px; color: var(--text-2); margin-bottom: 12px; }
+
+/* ---------- confirm modal ---------- */
+.ins-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    display: none; align-items: center; justify-content: center; z-index: 60; padding: 20px;
+}
+.ins-overlay.show { display: flex; }
+.ins-modal {
+    width: 100%; max-width: 420px; background: var(--surf); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px; text-align: center;
+}
+.ins-modal .m-ic { font-size: 34px; color: #e0573f; margin-bottom: 6px; }
+.ins-modal p { font-size: 14.5px; margin: 6px 0 0; color: var(--text); }
+.ins-modal .m-actions { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 720px) {
+    .ins-build { grid-template-columns: 1fr; }
+    .ins-palette { position: static; flex-direction: row; flex-wrap: wrap; }
+    .ins-pal-item { flex: 1 1 45%; }
+    .ins-grid, .ins-shop-grid { grid-template-columns: 1fr 1fr; }
+    .ins-panel { padding: 18px; }
+}
+@media (max-width: 460px) {
+    .ins-grid, .ins-shop-grid { grid-template-columns: 1fr; }
+    .ins-pal-item { flex: 1 1 100%; }
+}
+
+/* ---------- Questions / Student Answers tabs ---------- */
+.ins-tabgroup {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--surf-2); border: 1px solid var(--border);
+    border-radius: 13px; padding: 6px;
+}
+.ins-tab {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: transparent; border: none; color: var(--text-2);
+    border-radius: 9px; padding: 10px 20px; font-size: 13px; font-weight: 600;
+    cursor: pointer; font-family: inherit; text-decoration: none;
+}
+.ins-tab:hover { color: var(--text); background: var(--surf); }
+.ins-tab.active {
+    background: var(--coral); color: #212121;
+    box-shadow: 0 1px 3px rgba(0,0,0,.18);
+}
+.ins-tab.active:hover { color: #212121; background: var(--coral); filter: brightness(1.05); }
+
+/* ---------- student attempts table ---------- */
+.ins-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; }
+.ins-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; min-width: 520px; }
+.ins-table th {
+    text-align: left; background: var(--surf-2); color: var(--text-2); font-weight: 600;
+    padding: 13px 24px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); white-space: nowrap;
+}
+.ins-table th:last-child { border-right: none; }
+.ins-table td { padding: 14px 24px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); color: var(--text); }
+.ins-table td:last-child { border-right: none; }
+.ins-table tr:last-child td { border-bottom: none; }
+.ins-table tbody tr { cursor: pointer; }
+.ins-table tbody tr:hover { background: var(--coral-bg); }
+.ins-table tbody tr:hover td { cursor: pointer; }
+
+/* ---------- answer highlighting on the attempt page ---------- */
+.ins-ans { display: flex; align-items: center; gap: 9px; font-size: 14px; line-height: 2.1; }
+.ins-ans.correct { color: var(--olive); font-weight: 600; }
+.ins-ans.wrong { color: #e0573f; font-weight: 600; }
+.ins-result {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700;
+}
+.ins-result.correct { background: rgba(143,174,126,.18); color: var(--olive); }
+.ins-result.wrong { background: rgba(224,87,63,.15); color: #e0573f; }
+.ins-result.none { background: var(--surf-2); color: var(--text-2); }
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px only.
+   The instructor pages share the .sea-top header, so the
+   navigation fix lives in sea-dashboard.css. These rules just
+   stop the card grids and the quiz builder being squeezed.
+   ============================================================ */
+@media (max-width: 560px) {
+    .ins-grid, .ins-shop-grid { grid-template-columns: 1fr; }
+    .ins-wrap { padding-left: 12px; padding-right: 12px; }
+    .ins-card { padding: 14px; }
+}

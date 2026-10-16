@@ -1,0 +1,400 @@
+﻿/* ============================================================
+   Syntax Error Academy - Quiz-taking page (EXTERNAL CSS)
+   Reuses the theme variables defined in sea-dashboard.css.
+   ============================================================ */
+
+.quiz-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 26px 20px 60px;
+}
+
+.quiz-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.quiz-desc {
+    color: var(--text-2);
+    font-size: 14px;
+    margin: 6px 0 0;
+}
+
+/* One question */
+.q-card {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-top: 16px;
+}
+
+.q-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.q-num {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    color: var(--text-2);
+}
+
+.q-tag {
+    font-size: 11px;
+    letter-spacing: .04em;
+    color: var(--coral);
+    background: var(--coral-bg);
+    padding: 2px 9px;
+    border-radius: 6px;
+}
+
+.q-text {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 0 14px;
+}
+
+/* MCQ radio list */
+.opts {
+    margin-top: 4px;
+}
+
+    .opts input[type=radio] {
+        accent-color: var(--coral);
+        margin-right: 9px;
+    }
+
+    .opts label {
+        font-size: 14px;
+        line-height: 2.1;
+        cursor: pointer;
+    }
+
+/* Essay */
+.essay {
+    width: 100%;
+    min-height: 120px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+    .essay:focus {
+        outline: none;
+        border-color: var(--coral);
+    }
+
+/* Matching + puzzle rows */
+.pair {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+    .pair .left {
+        flex: 1;
+        min-width: 120px;
+        font-size: 14px;
+    }
+
+.ddl {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 8px 10px;
+    font-size: 14px;
+    min-width: 150px;
+}
+
+    .ddl:focus {
+        outline: none;
+        border-color: var(--coral);
+    }
+
+.hint {
+    font-size: 13px;
+    color: var(--text-2);
+    margin: 0 0 10px;
+}
+
+/* Actions + validation */
+.quiz-actions {
+    margin-top: 22px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--coral);
+    color: #212121;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* secondary button: outline style, used next to a primary action */
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+    .btn-ghost:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+        filter: none;
+    }
+
+.btn:hover {
+    filter: brightness(1.06);
+}
+
+.vmsg {
+    color: #e0573f;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+/* Result panel */
+.result {
+    background: var(--surf);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+    .result h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+    }
+
+    .result .score {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--coral);
+        font-family: Consolas, "Courier New", monospace;
+    }
+
+    .result p {
+        color: var(--text-2);
+        font-size: 14px;
+    }
+
+/* AI essay feedback shown on the result panel */
+.q-feedback {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-2);
+    text-align: left;
+}
+
+/* ---- Duolingo-style tap-to-match ---- */
+.match {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chip {
+    text-align: center;
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 13px 14px;
+    font-size: 14px;
+    font-family: Consolas, "Courier New", monospace;
+    cursor: pointer;
+    transition: transform .08s ease, border-color .15s ease, background .15s ease;
+}
+
+    .chip:hover:not(.correct):not([disabled]) {
+        border-color: var(--coral);
+    }
+
+    .chip:active:not(.correct) {
+        transform: scale(.97);
+    }
+
+    .chip.selected {
+        border-color: var(--coral);
+        background: var(--coral-bg);
+    }
+
+    .chip.correct {
+        border-color: #40a85f;
+        background: rgba(64,168,95,.16);
+        cursor: default;
+        opacity: .9;
+    }
+
+    .chip.wrong {
+        border-color: #e5534b;
+        background: rgba(229,83,75,.18);
+        animation: seaChipShake .3s ease;
+    }
+
+@keyframes seaChipShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+.match.shake {
+    animation: seaMatchShake .45s ease;
+}
+
+@keyframes seaMatchShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    20%, 60% {
+        transform: translateX(-6px);
+    }
+
+    40%, 80% {
+        transform: translateX(6px);
+    }
+}
+
+@media (max-width: 520px) {
+    .match {
+        gap: 10px;
+    }
+
+    .chip {
+        padding: 11px 10px;
+        font-size: 13px;
+    }
+}
+
+/* ---- AI hint ---- */
+.hint-row {
+    margin: -4px 0 14px;
+}
+
+.hint-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1px dashed var(--border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-2);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+}
+
+    .hint-btn:hover:not([disabled]) {
+        color: var(--coral);
+        border-color: var(--coral);
+    }
+
+    .hint-btn[disabled] {
+        opacity: .55;
+        cursor: default;
+    }
+
+    .hint-btn .ti {
+        font-size: 15px;
+    }
+
+.hint-bubble {
+    display: none;
+    position: relative;
+    margin-top: 9px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--coral);
+    border-radius: 10px;
+    background: var(--surf-2);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text);
+}
+
+    .hint-bubble.show {
+        display: block;
+        animation: hintIn .25s ease both;
+    }
+
+    .hint-bubble.loading {
+        color: var(--text-2);
+        font-style: italic;
+    }
+
+@keyframes hintIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px only.
+   The submit / back buttons stack to full width so they are
+   always reachable, and the question card tightens up.
+   ============================================================ */
+@media (max-width: 560px) {
+    .quiz-wrap { padding-left: 12px; padding-right: 12px; }
+
+    .quiz-title { font-size: 20px; }
+
+    .q-card { padding: 15px; }
+
+    .q-text { font-size: 14.5px; }
+
+    /* buttons go full width instead of sitting in a row */
+    .quiz-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+    }
+
+    .btn,
+    .btn-ghost {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .essay { min-height: 120px; }
+}

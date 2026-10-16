@@ -1,0 +1,272 @@
+/* ============================================================
+   Syntax Error Academy - Minigames  (EXTERNAL CSS)
+   Hub grid + shared game-page layout. Uses the theme variables
+   defined in sea-dashboard.css (--bg, --surf, --coral, ...)
+   so dark / light mode works automatically.
+   ============================================================ */
+
+/* ---------- shared wrapper ---------- */
+.games-wrap {
+    max-width: 860px;
+    margin: 26px auto;
+    padding: 0 18px;
+}
+
+/* ---------- hub ---------- */
+.games-title {
+    margin: 10px 0 4px;
+    font-size: 26px;
+    color: var(--text);
+}
+
+.games-sub {
+    margin: 0 0 18px;
+    font-size: 14px;
+    color: var(--text-2);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    color: var(--text);
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: transform .12s ease, border-color .15s ease;
+}
+
+    .game-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--coral);
+    }
+
+.game-ic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 24px;
+}
+
+.game-card h3 {
+    margin: 2px 0 0;
+    font-size: 17px;
+}
+
+.game-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-2);
+}
+
+.game-play {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--coral);
+    color: #212121;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ---------- game page ---------- */
+.game-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 10px;
+}
+
+.game-back {
+    font-size: 14px;
+    color: var(--text-2);
+    text-decoration: none;
+}
+
+    .game-back:hover {
+        color: var(--coral);
+    }
+
+.game-mute {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--glass);
+    color: var(--text);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.game-panel {
+    padding: 18px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    backdrop-filter: blur(8px);
+}
+
+.game-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.game-title {
+    margin: 0;
+    font-size: 22px;
+    color: var(--text);
+}
+
+.game-hud {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.hud-chip {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surf);
+    font-size: 13px;
+    color: var(--text-2);
+}
+
+    .hud-chip b {
+        margin-left: 4px;
+        color: var(--text);
+        font-family: Consolas, "Courier New", monospace;
+    }
+
+.game-stage {
+    position: relative;
+}
+
+    .game-stage canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surf-2);
+        touch-action: none; /* stops the page scrolling while playing on touch */
+    }
+
+.game-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 14px;
+    background: rgba(18, 18, 18, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+html.light .game-overlay {
+    background: rgba(250, 249, 246, 0.72);
+}
+
+.game-overlay h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--text);
+}
+
+.game-overlay p {
+    margin: 0;
+    max-width: 420px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-2);
+}
+
+.game-btn {
+    margin-top: 8px;
+    padding: 10px 26px;
+    border: none;
+    border-radius: 999px;
+    background: var(--coral);
+    color: #212121;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .game-btn:hover {
+        filter: brightness(1.06);
+    }
+
+    .game-btn:active {
+        transform: scale(.97);
+    }
+
+.game-hint {
+    margin: 12px 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-2);
+}
+
+    .game-hint b {
+        color: var(--coral);
+        font-family: Consolas, "Courier New", monospace;
+    }
+
+@media (max-width: 560px) {
+    .games-wrap {
+        margin: 16px auto;
+    }
+
+    .game-panel {
+        padding: 12px;
+    }
+
+    .game-title {
+        font-size: 19px;
+    }
+}
+
+/* ============================================================
+   MOBILE LAYOUT - applies under 560px only.
+   One game card per row, and the heads-up display wraps so the
+   score and lives chips are never cut off.
+   ============================================================ */
+@media (max-width: 560px) {
+    .games-grid { grid-template-columns: 1fr; }
+
+    .game-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .game-hud { width: 100%; }
+
+    .game-overlay p { font-size: 13px; }
+}
