@@ -43,10 +43,33 @@ Group project for **CT050-3-2 Web Applications (WAPP)** at Asia Pacific Universi
 
 1. Clone the repo and open `WAPP Assignment.slnx`.
 2. Build the solution. Visual Studio restores the NuGet packages for you.
-3. *(Optional, for AI features)* Copy `WAPP Assignment/secrets.config.example` to `WAPP Assignment/secrets.config` and fill in your n8n webhook URLs and token. If you skip this, the app still runs and the AI features show a "not configured" message.
-4. Run with IIS Express (F5) and start from `Login.aspx`.
+3. Run with IIS Express (F5) and start from `Login.aspx`.
 
 The database is `App_Data/SyntaxErrorAcademy.mdf`. LocalDB creates the transaction log automatically the first time the database is attached.
+
+### Enabling the AI features (optional)
+AI essay grading and quiz hints are **off by default** because no webhook URLs are included in this repo. Everything else works without them; the AI parts just show a "not configured" message.
+
+To turn them on, connect your own AI API. The app never calls an AI provider directly. It POSTs JSON to a webhook, so any AI model works (Gemini, OpenAI, etc.).
+
+1. Build two webhook endpoints (e.g. two n8n workflows: **Webhook → AI model → Respond to Webhook**), following the contract below. Your AI API key lives inside the workflow, not in this app.
+2. Copy `WAPP Assignment/secrets.config.example` to `WAPP Assignment/secrets.config`. This file is git-ignored.
+3. Fill in the values and restart the app:
+
+```xml
+<add key="N8nEssayWebhookUrl" value="https://your-host/webhook/sea-essay-grade" />
+<add key="N8nHintWebhookUrl"  value="https://your-host/webhook/sea-hint" />
+<add key="N8nAuthToken"       value="" />  <!-- optional: sent as the Authorization header -->
+```
+
+**Webhook contract**
+
+| Endpoint | App sends (POST, JSON) | Webhook replies (JSON) |
+|---|---|---|
+| Essay grading | `{ "question": "...", "expected": "...", "answer": "..." }` | `{ "verdict": "Correct" \| "Wrong", "feedback": "one short sentence" }` |
+| Quiz hint | `{ "question": "..." }` | `{ "hint": "..." }` |
+
+The reply can be a bare object or an array with one object, which is n8n's default.
 
 ### Demo accounts
 All demo passwords are `123456`.
@@ -81,7 +104,7 @@ WAPP Assignment/
 - This is a coursework project and is not hardened for production.
 
 ## Team
-- **Tan Ee Xin**: Student module
-- Wang Jim Loong
+- Tan Ee Xin
 - Tay Boon Tao
-- Wong Zhi Yoong
+- Wang Jim Loong
+- Yeoh Yoong Ning
